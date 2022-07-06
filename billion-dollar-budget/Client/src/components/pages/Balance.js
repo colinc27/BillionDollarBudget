@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Balance = () => {
   return (
@@ -7,6 +7,6 @@ const Balance = () => {
       <h1 >$0.00</h1>
     </>
   )
-}
+};
 
-export default Balance
+export default Balance;
