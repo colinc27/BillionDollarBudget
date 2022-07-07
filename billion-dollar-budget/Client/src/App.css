@@ -9,3 +9,7 @@ body {
     flex: 0 0 50px;/*or just height:50px;*/
     margin-top: auto;
   }
+
+  div .content{
+    padding-top: 100px ;
+  }
