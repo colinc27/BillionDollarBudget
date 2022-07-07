@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
 const express = require('express');
+const db = require('./config/connection');
+
 const app = express();
+const PORT = process.env.PORT|| 3001;
 
-app.listen(3001,()=>{
-    console.log('Server is on port 3001')
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+db.once('open',()=>{
+    app.listen(PORT,()=>{
+        console.log(`server is now on ${PORT}!`)
+    });
 })
-mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost:27017/billion-dollar-budget',{
-    useNewUrlParser: true,
-    useUnifiedTopology:true
-});
-
-mongoose.set ('debug',true);

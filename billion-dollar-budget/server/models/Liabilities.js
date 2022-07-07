@@ -17,6 +17,8 @@ const LiabilitiesSchema = new Schema({
         type: Number
     }
 
+},{
+    toJSON: {getters:true}
 }) 
 
 const Liabilities = model('Liabilities',LiabilitiesSchema);
