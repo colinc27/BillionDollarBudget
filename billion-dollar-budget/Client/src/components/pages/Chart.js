@@ -1,34 +1,33 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 class Chart extends React.Component {
 
     data = [
         {
             "name": "Rent",
-            "Expected": "$600",
-            "Actual": "$600"
+            "Expected": 600,
+            "Actual": 600
         },
         {
           "name": "Food",
-          "Expected": "$300",
-          "Actual": "$200"
+          "Expected": 300,
+          "Actual": 200
         },
         {
           "name": "Misc.",
-          "Expected": "$400",
-          "Actual": "$225"
+          "Expected": 400,
+          "Actual": 225
         },
         {
           "name": "Going Out",
-          "Expected": "$100",
-          "Actual": "$200",
-          
+          "Expected": 100,
+          "Actual": 200,
         },
         {
           "name": "Gas",
-          "Expected": "$200",
-          "Actual": "$500"
+          "Expected": 200,
+          "Actual": 500
         }
     ]
 
