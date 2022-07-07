@@ -3,21 +3,27 @@ import  Header  from './components/pages/Header';
 import Balance  from './components/pages/Balance';
 import IncomeExpenses from './components/pages/IncomeExpenses';
 import Chart from "./components/pages/Chart";
+import Footer from './components/pages/Footer';
 
 import './App.css';
 
 function App() {
   
   return (
-    <div>
-      <Header />
-      <div className="container">
+      <body class="d-flex flex-column min-vh-100">
+        <div class="container">
+          <Header />
+          <div class="">
+            <Balance />
+            <IncomeExpenses />
+            <Chart />
+        {/* <ModifyBudget /> */}
         <Balance />
         <IncomeExpenses />
-        <Chart />
-        {/* <ModifyBudget /> */}
-      </div>
+        </div>
+        <Footer />
     </div>
+    </body>
   );
 }
 
