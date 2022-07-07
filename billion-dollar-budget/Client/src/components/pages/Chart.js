@@ -6,35 +6,36 @@ class Chart extends React.Component {
     data = [
         {
             "name": "Rent",
-            "Expected": 600,
-            "Actual": 600
+            "Expected": "$600",
+            "Actual": "$600"
         },
         {
           "name": "Food",
-          "Expected": 300,
-          "Actual": 200
+          "Expected": "$300",
+          "Actual": "$200"
         },
         {
-          "name": "Miscellaneous",
-          "Expected": 400,
-          "Actual": 225
+          "name": "Misc.",
+          "Expected": "$400",
+          "Actual": "$225"
         },
         {
           "name": "Going Out",
-          "Expected": 100,
-          "Actual": 200
+          "Expected": "$100",
+          "Actual": "$200",
+          
         },
         {
           "name": "Gas",
-          "Expected": 200,
-          "Actual": 500
+          "Expected": "$200",
+          "Actual": "$500"
         }
     ]
 
     render() {
         return (
         <BarChart
-          width={500}
+          width={600}
           height={300}
           data={this.data}
           margin={{
@@ -46,12 +47,12 @@ class Chart extends React.Component {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-          <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+          <YAxis yAxisId="left" orientation="left" stroke="#EC7063" />
+          <YAxis yAxisId="right" orientation="right" stroke="#58D68D" />
           <Tooltip />
           <Legend />
-          <Bar yAxisId="left" dataKey="Expected" fill="#8884d8" />
-          <Bar yAxisId="right" dataKey="Actual" fill="#82ca9d" />
+          <Bar yAxisId="left" dataKey="Expected" fill="#EC7063" />
+          <Bar yAxisId="right" dataKey="Actual" fill="#58D68D" />
         </BarChart>
         )
     };
