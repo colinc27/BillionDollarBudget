@@ -1,9 +1,9 @@
 const {Schema, model} = require('mongoose');
 
-const AssestsSchema = new Schema ({
-    paycheck: {
+const paycheckSchema = new Schema ({
+    salary: {
         type: Number 
-    }
+    },
 },
 {
     toJSON:{
@@ -12,5 +12,5 @@ const AssestsSchema = new Schema ({
 
 })
 
-const Assests = model('Assets',AssestsSchema);
+const Assests = model('Assets',paycheckSchema);
 module.exports = {Assests}

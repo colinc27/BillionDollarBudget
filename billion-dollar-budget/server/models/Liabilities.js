@@ -3,6 +3,7 @@ const {Schema, model} = require('mongoose');
 const LiabilitiesSchema = new Schema({
     rent:{
         type: Number
+        
     },
     Utilities: {
         type: Number
