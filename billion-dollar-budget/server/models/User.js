@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose')
-const Assests = require('./Assests')
+const Assests = require('./Assets')
 const Liabilities = require('./Liabilities')
 const UserSchema = new Schema ({
     username: {
@@ -7,21 +7,29 @@ const UserSchema = new Schema ({
         unique: true,
         required: true
     },
-    Password:{
-        type: String, 
-        required: true,
-        minlength: 4
-    },
     email: {
         type: String,
         required: true,
         unique: true,
         match: [/.+@.+\..+/, 'Must match an email address!']    
     },
-    assests: [{type: Schema.Types.ObjectId,
-                ref: 'Assets'}],
-    liabilities: [{type:Schema.Types.ObjectId,
-                    ref:'Liabilities'}]
+    Password:{
+        type: String, 
+        required: true,
+        minlength: 4
+    },
+    assests: [
+        {
+            type: Schema.Types.ObjectId,
+                ref: 'Assets'
+            }
+            ],
+    liabilities: [
+        {
+            type:Schema.Types.ObjectId,
+                ref:'Liabilities'
+                }
+            ]
 },
 {
     toJSON:{getters:true}
@@ -40,4 +48,4 @@ UserSchema.methods.isCorrectPassword = async function(password) {
     return bcrypt.compare(password, this.password);
 };
 const User = model('User', UserSchema);
-module.exports={User};
+module.exports= User;
