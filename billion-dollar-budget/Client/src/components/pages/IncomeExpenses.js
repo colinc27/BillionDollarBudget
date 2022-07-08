@@ -11,20 +11,20 @@ function IncomeExpenses() {
       rowKey: null
   });
 
-  const [ paycheckAmount, setPaycheckAmount] = useState(0);
-  const [ rentAmount, setRentAmount ] = useState(0);
-  const [ utilitiesAmount, setUtilitiesAmount ] = useState(0);
-  const [ reoccurringBills, setreoccurringBills] = useState(0);
-  const [ gasAmount, setGasAmount ] = useState(0);
-  const [ foodAmount, setFoodAmount ] = useState(0);
+  const [ paycheckAmount, setPaycheckAmount] = useState(null);
+  const [ rentAmount, setRentAmount ] = useState(null);
+  const [ utilitiesAmount, setUtilitiesAmount ] = useState(null);
+  const [ reoccurringBills, setreoccurringBills] = useState(null);
+  const [ gasAmount, setGasAmount ] = useState(null);
+  const [ foodAmount, setFoodAmount ] = useState(null);
 
-//   const onEdit = ({id, currentPaycheckAmount, currentRentAmount}) => {
-//       setInEditMode({
-//           status: true,
-//           rowKey: id
-//       })
-//       setPaycheckAmount(currentPaycheckAmount);
-// }
+  const onEdit = ({id, currentPaycheckAmount, currentRentAmount}) => {
+      setInEditMode({
+          status: true,
+          rowKey: id
+      })
+      setPaycheckAmount(currentPaycheckAmount);
+}
 
 //fetch go here?
 const updatePaycheck = ({id, newPaycheckAmount}) => {
@@ -65,8 +65,8 @@ const onCancel = () => {
   return (
     <>
         <h3>Monthly Income</h3>
-      {/* <div> */}
-        {/* <Table striped brodered hover variant='dark'>
+      <div>
+        <Table striped brodered hover variant='dark'>
             <thead>
             <tr>
               <th>Paycheck</th>
@@ -149,6 +149,75 @@ const onCancel = () => {
                       }
                   </td>
                   <td>
+                     {
+                        inEditMode.status && inEditMode.rowKey === user.id ? (
+                          <>
+                              <button                     
+                                className={"btn btn-success"}
+                                onClick={() => onSave({id: user.id, newPaycheckAmount: paycheckAmount})}
+                              >Save
+                              </button>
+
+                              <button
+                                className={"btn btn-secondary"}
+                                style={{marginLeft: 8}}
+                                onClick={() => onCancel()}
+                              >Cancel
+                              </button>
+                          </>
+                      ) : (
+                              <button
+                                className={"btn btn-primary"}
+                                onClick={() => onEdit({id: user.id, paycheckAmount: user.paycheck_amount})}
+                              >Edit</button>
+                                    )
+                      }
+                  </td>
+                  <td>
+                  {
+                          inEditMode.status && inEditMode.rowKey === user.id ? (
+                              <input value={utilitiesAmount}
+                                 onChange={(event) => setUtilitiesAmount(event.target.value)}
+                              />
+                          ) : (  
+                              user.utilities
+                          )
+                      }
+                  </td>
+                  <td>
+                  {
+                          inEditMode.status && inEditMode.rowKey === user.id ? (
+                              <input value={reoccurringBills}
+                                 onChange={(event) => setreoccurringBills(event.target.value)}
+                              />
+                          ) : (  
+                              user.reoccurringBills
+                          )
+                      }
+                  </td>
+                  <td>
+                  {
+                          inEditMode.status && inEditMode.rowKey === user.id ? (
+                              <input value={gasAmount}
+                                 onChange={(event) => setGasAmount(event.target.value)}
+                              />
+                          ) : (  
+                              user.gas
+                          )
+                      }
+                  </td>
+                  <td>
+                      {
+                          inEditMode.status && inEditMode.rowKey === user.id ? (
+                              <input value={foodAmount}
+                                 onChange={(event) => setFoodAmount(event.target.value)}
+                              />
+                          ) : (  
+                              user.food
+                          )
+                      }
+                  </td>
+                  <td>
                      
                   </td>
                 </tr>
@@ -156,7 +225,7 @@ const onCancel = () => {
           }
           </tbody>
          </Table>
-      </div> */}
+      </div>
       <div>
           <h3>Monthly Expense (fill in amounts to add your total expenses)</h3>
           <table>
