@@ -6,7 +6,7 @@
   - [Usage](#usage)
   - [How to Contribute](#contribute)
   - [Tests](#tests)
-  - [Questions](#questions)
+  - [Collaborators](#collaborators)
   - [License](#license)
   ## Description <a name="description"></a>
   For this project we created a budgeting app that allows the user to add there expected income and expences to track and compare them againt there actual spending month over month.
@@ -19,10 +19,12 @@
   In order to contibute you must be given access by the owner of this project: Colin Christoph
   ## Tests <a name="tests"></a>
   None
-  ## Questions <a name="questions"></a>
-  Created by Colin Christoph<br>
-  Reach Me by Email: [colinchristoph27@gmail.com](mailto:colinchristoph27@gmail.com)<br>
-  Visit my Github: [colinc27](https://github.com/colinc27)
+  ## Collaborators <a name="collaborators"></a>
+  Colin Christoph, Github: [colinc27](https://github.com/colinc27)<br>
+  Christopher Chubb, Github: [chubbchris](https://github.com/chubbchris)<br>
+  Kailey Cooper, Github: [Kailey09](https://github.com/Kailey09)<br>
+  Robert Young, Github: [robertarthury](https://github.com/robertarthury)<br>
+  Sahitya Katanguru, Github: [sahityakat](https://github.com/sahityakat)<br>
   ## License <a name="license"></a>
   MIT
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
