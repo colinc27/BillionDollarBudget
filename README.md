@@ -11,7 +11,7 @@
   ## Description <a name="description"></a>
   For this project we created a budgeting app that allows the user to add there expected income and expences to track and compare them againt there actual spending month over month.
   ## Installation <a name="installation"></a>
-  This will be a heroku app which will be available in the usage section below. Other than that if you decide to work on this pp you will have to run npm i to get all necesarry packages for running the app.
+  This will be a heroku app which will be available in the usage section below. Other than that if you decide to work on this app you will have to run npm i to get all necesarry packages for running the app.
   ## Usage <a name="usage"></a>
   Please use the following link to access the app:[Heroku Link](www.google.com)
   Here is a screenshot of the home page 
