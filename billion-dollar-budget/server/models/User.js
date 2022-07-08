@@ -18,8 +18,10 @@ const UserSchema = new Schema ({
         unique: true,
         match: [/.+@.+\..+/, 'Must match an email address!']    
     },
-    assests: [Assests],
-    liabilities: [Liabilities]
+    assests: [{type: Schema.Types.ObjectId,
+                ref: 'Assets'}],
+    liabilities: [{type:Schema.Types.ObjectId,
+                    ref:'Liabilities'}]
 },
 {
     toJSON:{getters:true}
