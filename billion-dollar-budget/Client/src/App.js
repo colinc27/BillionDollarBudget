@@ -9,10 +9,10 @@ import './App.css';
 function App() {
   
   return (
-      <body class="d-flex flex-column min-vh-100">
+      <body class="d-flex flex-column min-vh-100" id="App">
         <div class="container pt-5">
-        <Header />
-          <div class="py-5">
+          <Header />
+          <div class="py-5" id="page-wrap">
             <Balance />
             <IncomeExpenses />
             <Chart />
