@@ -30,10 +30,6 @@ body {
   transition: color 0.2s;
 }
 
-.bm-item:hover {
-  color: gray;
-}
-
 .bm-burger-button {
   position: fixed;
   width: 36px;
