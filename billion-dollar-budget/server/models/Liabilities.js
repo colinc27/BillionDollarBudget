@@ -5,7 +5,7 @@ const LiabilitiesSchema = new Schema({
         type: Number
         
     },
-    Utilities: {
+    utilities: {
         type: Number
     },
     reoccurringBills: {
@@ -23,4 +23,4 @@ const LiabilitiesSchema = new Schema({
 }) 
 
 const Liabilities = model('Liabilities',LiabilitiesSchema);
-module.exports={Liabilities}
+module.exports= Liabilities
