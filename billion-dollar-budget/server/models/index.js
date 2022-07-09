@@ -3,4 +3,4 @@ const Assets = require('./Assets');
 const Liabilities = require('./Liabilities')
 
 
-module.exports ={User,Assets,Liabilities}
+module.exports ={User, Assets, Liabilities}
