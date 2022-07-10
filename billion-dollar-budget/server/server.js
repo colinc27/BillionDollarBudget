@@ -1,10 +1,10 @@
 const express = require('express');
-const { ApolloSever } = require('apollo-server-express');
-const {typeDefs, resolvers} = require('/schemas');
+const { ApolloServer } = require('apollo-server-express');
+const {typeDefs, resolvers} = require('./schemas');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
-const server = new ApolloSever({
+const server = new ApolloServer({
     typeDefs,
     resolvers
 })
@@ -24,4 +24,4 @@ db.once('open', () => {
 });
 }
 
-startApolloServer(typeDefs,resolvers);no
+startApolloServer(typeDefs,resolvers);
