@@ -11,20 +11,20 @@ function IncomeExpenses() {
       rowKey: null
   });
 
-  const [ paycheckAmount, setPaycheckAmount] = useState(null);
-  const [ rentAmount, setRentAmount ] = useState(null);
-  const [ utilitiesAmount, setUtilitiesAmount ] = useState(null);
-  const [ reoccurringBills, setreoccurringBills] = useState(null);
-  const [ gasAmount, setGasAmount ] = useState(null);
-  const [ foodAmount, setFoodAmount ] = useState(null);
+  const [ paycheckAmount, setPaycheckAmount] = useState(0);
+  const [ rentAmount, setRentAmount ] = useState(0);
+  const [ utilitiesAmount, setUtilitiesAmount ] = useState(0);
+  const [ reoccurringBills, setreoccurringBills] = useState(0);
+  const [ gasAmount, setGasAmount ] = useState(0);
+  const [ foodAmount, setFoodAmount ] = useState(0);
 
-  const onEdit = ({id, currentPaycheckAmount, currentRentAmount}) => {
-      setInEditMode({
-          status: true,
-          rowKey: id
-      })
-      setPaycheckAmount(currentPaycheckAmount);
-}
+//   const onEdit = ({id, currentPaycheckAmount, currentRentAmount}) => {
+//       setInEditMode({
+//           status: true,
+//           rowKey: id
+//       })
+//       setPaycheckAmount(currentPaycheckAmount);
+// }
 
 //fetch go here?
 const updatePaycheck = ({id, newPaycheckAmount}) => {
@@ -65,8 +65,8 @@ const onCancel = () => {
   return (
     <>
         <h3>Monthly Income</h3>
-      <div>
-        <Table striped brodered hover variant='dark'>
+      {/* <div> */}
+        {/* <Table striped brodered hover variant='dark'>
             <thead>
             <tr>
               <th>Paycheck</th>
@@ -149,36 +149,14 @@ const onCancel = () => {
                       }
                   </td>
                   <td>
-                     {
-                        inEditMode.status && inEditMode.rowKey === user.id ? (
-                          <>
-                              <button                     
-                                className={"btn btn-success"}
-                                onClick={() => onSave({id: user.id, newPaycheckAmount: paycheckAmount})}
-                              >Save
-                              </button>
-
-                              <button
-                                className={"btn btn-secondary"}
-                                style={{marginLeft: 8}}
-                                onClick={() => onCancel()}
-                              >Cancel
-                              </button>
-                          </>
-                      ) : (
-                              <button
-                                className={"btn btn-primary"}
-                                onClick={() => onEdit({id: user.id, paycheckAmount: user.paycheck_amount})}
-                              >Edit</button>
-                                    )
-                      }
+                     
                   </td>
                 </tr>
               ))
           }
           </tbody>
          </Table>
-      </div>
+      </div> */}
       <div>
           <h3>Monthly Expense (fill in amounts to add your total expenses)</h3>
           <table>
@@ -191,29 +169,40 @@ const onCancel = () => {
             <tbody>
               <tr>
                 <td>Utilities</td>
-                <td>$120</td>
+                <td>
+                  <input type='text' />
+                  {/*  onChange={(event) => setreoccurringBills(event.target.value)} */}
+                </td>
               </tr>
              <tr>
                 <td>Cell Phone</td>
-                <td>$180</td>
+                <td>
+                  <input type='text' />
+                </td>
               </tr>
               <tr>
                 <td>Groceries</td>
-                <td>$400</td>
+                <td>
+                  <input type='text' />
+                </td>
               </tr>
               <tr>
                 <td>Total Car Payments</td>
-                <td>$400</td>
+                <td>
+                  <input type='text' />
+                </td>
               </tr>
               <tr>
                 <td>Credit Card Payments</td>
-                <td>$400</td>
+                <td>
+                  <input type='text' />
+                </td>
               </tr>
             </tbody>
          </table>
          <hr/>
-        <input type='text' />
         <button className='btn btn-primary'>add expenses</button>
+        {/* add onClick as attribute  */}
         </div>
       </>
 
