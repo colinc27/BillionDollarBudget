@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
+import '../styles/Home.css'
+import 'react-bootstrap'
+// import Auth from '../utils/auth';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
 
 
 
 function IncomeExpenses() {
-      const [data, setData] = useState([]);
+  //     const [data, setData] = useState([]);
 
-      const [inEditMode, setInEditMode] = useState({
-      status: false,
-      rowKey: null
-  });
+  //     const [inEditMode, setInEditMode] = useState({
+  //     status: false,
+  //     rowKey: null
+  // });
 
   const [ paycheckAmount, setPaycheckAmount] = useState(null);
   const [ rentAmount, setRentAmount ] = useState(null);
@@ -18,260 +23,73 @@ function IncomeExpenses() {
   const [ gasAmount, setGasAmount ] = useState(null);
   const [ foodAmount, setFoodAmount ] = useState(null);
 
-  const onEdit = ({id, currentPaycheckAmount, currentRentAmount}) => {
-      setInEditMode({
-          status: true,
-          rowKey: id
-      })
-      setPaycheckAmount(currentPaycheckAmount);
-}
-
 //fetch go here?
-const updatePaycheck = ({id, newPaycheckAmount}) => {
-    console.log("paycheck updated")
-  // fetch(`${BILLION_DOLLAR_BUDGET_API_URL}/${id}`, {
-  //     method: "PATCH",
-  //     body: JSON.stringify({
-  //         income_source_amount: newUnitPrice
-  //     }),
-  //     headers: {
-  //         "Content-type": "application/json; charset=UTF-8"
-  //     }
-  // })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //         // reset inEditMode and unit price state values
-  //         onCancel();
+// const updatePaycheck = ({id, newPaycheckAmount}) => {
+//     console.log("paycheck updated")
+// }
 
-  //         // fetch the updated data
-  //         fetchInventory();
-  //     })
-}
-const onSave = ({id, newPaycheckAmount}) => {
-  updatePaycheck({id, newPaycheckAmount});
-}
-
-const onCancel = () => {
-  // reset the inEditMode state value
-  setInEditMode({
-      status: false,
-      rowKey: null
-  })
-  // reset the paycheckAmount state value
-  setPaycheckAmount(null);
-}
-  
 
   return (
     <>
-        <h3>Monthly Income</h3>
       <div>
-        <Table striped brodered hover variant='dark'>
-            <thead>
-            <tr>
-              <th>Paycheck</th>
-              <th>Rent</th>
-              <th>Utilities</th>
-              <th>Reoccurring Bills</th>
-              <th>Gas</th>
-              <th>Food</th>
-              <th>Action</th>
-            </tr> 
-            </thead>
-          <tbody>
-          {
-              data.map((user) => (
-                <tr key={user.id}>
-                  <td>
-                      {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={paycheckAmount}
-                                 onChange={(event) => setPaycheckAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.paycheck
-                          )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={rentAmount}
-                                 onChange={(event) => setRentAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.rent
-                          )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={utilitiesAmount}
-                                 onChange={(event) => setUtilitiesAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.utilities
-                          )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={reoccurringBills}
-                                 onChange={(event) => setreoccurringBills(event.target.value)}
-                              />
-                          ) : (  
-                              user.reoccurringBills
-                          )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={gasAmount}
-                                 onChange={(event) => setGasAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.gas
-                          )
-                      }
-                  </td>
-                  <td>
-                      {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={foodAmount}
-                                 onChange={(event) => setFoodAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.food
-                          )
-                      }
-                  </td>
-                  <td>
-                     {
-                        inEditMode.status && inEditMode.rowKey === user.id ? (
-                          <>
-                              <button                     
-                                className={"btn btn-success"}
-                                onClick={() => onSave({id: user.id, newPaycheckAmount: paycheckAmount})}
-                              >Save
-                              </button>
-
-                              <button
-                                className={"btn btn-secondary"}
-                                style={{marginLeft: 8}}
-                                onClick={() => onCancel()}
-                              >Cancel
-                              </button>
-                          </>
-                      ) : (
-                              <button
-                                className={"btn btn-primary"}
-                                onClick={() => onEdit({id: user.id, paycheckAmount: user.paycheck_amount})}
-                              >Edit</button>
-                                    )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={utilitiesAmount}
-                                 onChange={(event) => setUtilitiesAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.utilities
-                          )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={reoccurringBills}
-                                 onChange={(event) => setreoccurringBills(event.target.value)}
-                              />
-                          ) : (  
-                              user.reoccurringBills
-                          )
-                      }
-                  </td>
-                  <td>
-                  {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={gasAmount}
-                                 onChange={(event) => setGasAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.gas
-                          )
-                      }
-                  </td>
-                  <td>
-                      {
-                          inEditMode.status && inEditMode.rowKey === user.id ? (
-                              <input value={foodAmount}
-                                 onChange={(event) => setFoodAmount(event.target.value)}
-                              />
-                          ) : (  
-                              user.food
-                          )
-                      }
-                  </td>
-                  <td>
-                     
-                  </td>
-                </tr>
-              ))
-          }
-          </tbody>
-         </Table>
-      </div>
-      <div>
-          <h3>Monthly Expense (fill in amounts to add your total expenses)</h3>
-          <table>
+          <h2>Monthly Expenses Vs. Paycheck</h2>
+          <Table striped bordered hover>
            <thead>
               <tr>
-                <th>Item</th>
-                <th>Amount</th>
+                <th><h3>Item</h3></th>
+                <th><h3>Amount</h3></th>
              </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Utilities</td>
+                <td className="main-text">Paycheck</td>
                 <td>
-                  <input type='text' />
-                  {/*  onChange={(event) => setreoccurringBills(event.target.value)} */}
+                  <input value={paycheckAmount}
+                                 onChange={(event) => setPaycheckAmount(event.target.value)} type='text' />
                 </td>
               </tr>
              <tr>
-                <td>Cell Phone</td>
+                <td className="main-text">Rent</td>
                 <td>
-                  <input type='text' />
+                  <input value={rentAmount}
+                                 onChange={(event) => setRentAmount(event.target.value)} type='text' />
                 </td>
               </tr>
               <tr>
-                <td>Groceries</td>
+                <td className="main-text">Utilities</td>
                 <td>
-                  <input type='text' />
+                  <input value={utilitiesAmount}
+                                 onChange={(event) => setUtilitiesAmount(event.target.value)} type='text' />
                 </td>
               </tr>
               <tr>
-                <td>Total Car Payments</td>
+                <td className="main-text">Reoccurring Bills</td>
                 <td>
-                  <input type='text' />
+                  <input value={reoccurringBills}
+                                 onChange={(event) => setreoccurringBills(event.target.value)} type='text' />
                 </td>
               </tr>
               <tr>
-                <td>Credit Card Payments</td>
+                <td className="main-text">Gas</td>
                 <td>
-                  <input type='text' />
+                  <input value={gasAmount}
+                                 onChange={(event) => setGasAmount(event.target.value)} type='text' />
                 </td>
+              </tr>
+              <tr>
+                <td className="main-text">Food</td>
+                <td>
+                  <input value={foodAmount}
+                                 onChange={(event) => setFoodAmount(event.target.value)}type='text' />
+                </td>
+              </tr>
+              <tr>
+              <button className='btn btn-primary'> (Paycheck - Expenses) = </button>
+        {/* add onClick as attribute  */}
               </tr>
             </tbody>
-         </table>
+         </Table>
          <hr/>
-        <button className='btn btn-primary'>add expenses</button>
-        {/* add onClick as attribute  */}
         </div>
       </>
 
