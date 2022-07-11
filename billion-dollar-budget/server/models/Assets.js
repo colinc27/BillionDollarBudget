@@ -9,6 +9,10 @@ const paycheckSchema = new Schema ({
         default: Date.now
 
     },
+    username: {
+        type: String,
+        required: true
+      }
 },
 {
     toJSON:{

@@ -16,7 +16,11 @@ const LiabilitiesSchema = new Schema({
     },
     food: {
         type: Number
-    }
+    },
+    username: {
+        type: String,
+        required: true
+      }
 
 },{
     toJSON: {getters:true}
