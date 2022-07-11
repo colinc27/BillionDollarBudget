@@ -9,7 +9,7 @@ export const ModifyBudget = () => {
         <h3>Modify Balance</h3>
         <form>
             <div className="form-control">
-                <label htmlFor="text">I'm a Form, this text will be replaced with somthing dynamic maybe?</label>
+                <label htmlFor="text"></label>
                 <input type="text" value={text} onChange={(e) => setText(e.target.value)} pladeholder="Enter text..." />
             </div>
             <div className='form-control'>
