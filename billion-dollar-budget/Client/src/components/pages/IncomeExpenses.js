@@ -33,11 +33,11 @@ function IncomeExpenses() {
     <>
       <div>
           <h2>Monthly Expenses Vs. Paycheck</h2>
-          <Table striped bordered hover>
+          <Table striped bordered hover variant="dark">
            <thead>
               <tr>
-                <th><h3>Item</h3></th>
-                <th><h3>Amount</h3></th>
+                <th className="main-text">Item</th>
+                <th className="main-text">Amount</th>
              </tr>
             </thead>
             <tbody>
@@ -89,7 +89,10 @@ function IncomeExpenses() {
               </tr>
             </tbody>
          </Table>
-         <hr/>
+         <br/>
+         <button className='btn btn-primary'> (Paycheck - Expenses) = </button>
+        {/* add onClick as attribute  */}
+          
         </div>
       </>
 

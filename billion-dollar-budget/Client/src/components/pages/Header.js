@@ -2,7 +2,12 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <h2>Billion Dollar Budget Tracker</h2>
+    <div>
+        <h2>Billion Dollar Budget Tracker</h2>
+        <button>Logout</button>
+    </div>
+  
+
   )
 }
 
