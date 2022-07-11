@@ -39,7 +39,7 @@ body {
 }
 
 .bm-burger-bars {
-  background: #373a47;
+  background: white;
 }
 
 .bm-cross-button {
@@ -68,3 +68,5 @@ body {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+
+/* sidebar end */
