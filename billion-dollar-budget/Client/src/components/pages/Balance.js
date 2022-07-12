@@ -1,12 +1,31 @@
 import React from 'react';
 
-const Balance = () => {
-  return (
-    <>
-      <h4>Your Balance</h4>
-      <h1 >$0.00</h1>
-    </>
-  )
+class Balance extends React.Component{
+        
+  state = {
+    name: "",
+   }
+
+handleCallback = (data) =>{
+    this.setState({name: data})
+}
+
+render(){
+    const {data} = this.state;
+    return(
+        <h1>Total Balance: $1,000,000.00
+            {data}
+        </h1>
+    )
+}
 };
 
 export default Balance;
+
+
+// (
+//   <>
+//     <h4>Your Balance</h4>
+//     <h1> </h1>
+//   </>
+// )
