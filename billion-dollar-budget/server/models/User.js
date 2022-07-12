@@ -1,6 +1,7 @@
-const {Schema, model} = require('mongoose')
-const Assests = require('./Assets')
-const Liabilities = require('./Liabilities')
+const {Schema, model} = require('mongoose');
+const bcrypt = require('bcrypt');
+const Assests = require('./Assets');
+const Liabilities = require('./Liabilities');
 const UserSchema = new Schema ({
     username: {
         type: String,
@@ -13,7 +14,7 @@ const UserSchema = new Schema ({
         unique: true,
         match: [/.+@.+\..+/, 'Must match an email address!']    
     },
-    Password:{
+    password:{
         type: String, 
         required: true,
         minlength: 4
