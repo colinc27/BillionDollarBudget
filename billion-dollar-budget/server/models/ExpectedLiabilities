@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-const LiabilitiesSchema = new Schema({
+const ExpectedLiabilitiesSchema = new Schema({
     rent:{
         type: String
         
@@ -32,5 +32,5 @@ const LiabilitiesSchema = new Schema({
     toJSON: {getters:true}
 }) 
 
-const Liabilities = model('Liabilities',LiabilitiesSchema);
-module.exports= Liabilities
+const ExpectedLiabilities = model('ExpectedLiabilities',ExpectedLiabilitiesSchema);
+module.exports= ExpectedLiabilities
