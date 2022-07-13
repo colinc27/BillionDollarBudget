@@ -24,12 +24,6 @@ export const QUERY_USER = gql`
       _id
       createdAt
       username
-      paycheck
-      rent
-      utilities
-      reocurring bills
-      gas
-      food
     }
   }
 `;
