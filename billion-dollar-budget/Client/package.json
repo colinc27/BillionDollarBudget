@@ -10,7 +10,15 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
+<<<<<<< Updated upstream
     "react-scripts": "5.0.1",
+<<<<<<< Updated upstream
+=======
+    "recharts": "^2.1.12",
+=======
+    "react-scripts": "^5.0.1",
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     "web-vitals": "^2.1.4"
   },
   "scripts": {
