@@ -14,7 +14,7 @@ function App() {
           <Header />
           <div class="py-5" id="page-wrap">
             <Balance />
-            <IncomeExpenses />
+            {/* <IncomeExpenses /> */}
             <Chart />
         {/* <ModifyBudget /> */}
         </div>

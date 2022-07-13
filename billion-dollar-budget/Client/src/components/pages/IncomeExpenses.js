@@ -18,7 +18,7 @@ function IncomeExpenses() {
   const [ reoccurringBills, setreoccurringBills] = useState(0);
   const [ gasAmount, setGasAmount ] = useState(0);
   const [ foodAmount, setFoodAmount ] = useState(0);
-  const [ currentBudget, setCurrentBudget ] = useEffect('')
+  // const [ currentBudget, setCurrentBudget ] = useEffect('')
 
 
 
