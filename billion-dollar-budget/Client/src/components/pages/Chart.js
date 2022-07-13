@@ -1,9 +1,7 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import Sidebar from "./Sidebar";
 
-
-const Chart = () => {
+const Chart = ({expectedData}) => {
 
     const expense = [
         {
