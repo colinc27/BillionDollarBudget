@@ -4,14 +4,14 @@ const paycheckSchema = new Schema(
   {
     salary: {
       type: Number,
+      required:true
     },
     createdAt: {
       type: Date,
       default: Date.now,
     },
     username: {
-      type: String,
-      required: true,
+      type: String
     },
     monthName: {
       type: String

@@ -3,33 +3,33 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Assets {
     _id: ID
-    salary: String
+    salary: Float
     createdAt: String
     username: String
-    month:String
+    monthName:String
     year: String
   }
 
   type Liabilities {
     _id: ID
-    rent: String
-    utilities: String
+    rent: Float
+    utilities: Float
     username: String
-    reoccurringBills: String
-    gas: String
-    food: String
+    reoccurringBills: Float
+    gas: Float
+    food: Float
     monthName:String
     year: String
   }
 
   type ExpectedLiabilities {
     _id: ID
-    rent: String
-    utilities: String
+    rent: Float
+    utilities: Float
     username: String
-    reoccurringBills: String
-    gas: String
-    food: String
+    reoccurringBills: Float
+    gas: Float
+    food: Float
     monthName:String
     year: String
   }
@@ -49,7 +49,8 @@ const typeDefs = gql`
     user(username: String!): User
 
     assets(username: String!): [Assets]
-    assetsPerMonth(username: String!,monthName: String!,year:String!): [Assets]
+    assetsPerMonth(username: String!,monthName: String!,year:String!): Assets
+    assetById(_id:ID!): Assets
 
     liabilities(username: String!): [Liabilities]
     liabilitiesPerMonth(username: String!,monthName: String!,year:String!): [Liabilities]
@@ -62,16 +63,16 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
 
-    addAssets(username: String!,salary: String!,monthName: String!,year:String!): Assets
+    addAssets(salary: Float!,monthName: String!,year:String!): Assets
     removeAssets(_id: ID!): Assets
-    updateAssets(_id: ID!,salary: String!): Assets
+    updateAssets(_id: ID!,salary: Float!): Assets
 
-    addLiabilities(username: String!,monthName: String!,year:String!): Liabilities
-    updateLiabilities(_id: ID!,username: String!): Liabilities
+    addLiabilities(monthName: String!,year:String!,rent:Float,gas:Float,utilities:Float,reoccurringBills:Float,food:Float): Liabilities
+    updateLiabilities(_id: ID!,rent:Float,gas:Float,utilities:Float,reoccurringBills:Float,food:Float): Liabilities
     removeLiabilities(_id: ID!): Liabilities
 
-    addExpectedLiabilities(username: String!,monthName: String!): ExpectedLiabilities
-    updateExpectedLiabilities(_id: ID!,username: String!): ExpectedLiabilities
+    addExpectedLiabilities(monthName: String!,year:String!): ExpectedLiabilities
+    updateExpectedLiabilities(_id: ID!): ExpectedLiabilities
     removeExpectedLiabilities(_id: ID!): ExpectedLiabilities
   }
 

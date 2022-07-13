@@ -9,7 +9,8 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
           .populate("assets")
-          .populate("liabilities");   
+          .populate("liabilities")
+          .populate("expectedLiabilities");   
         return userData;
       }
     
@@ -20,7 +21,8 @@ const resolvers = {
       return User.find()
         .select("-__v -password")
         .populate("assets")
-        .populate("liabilities");
+        .populate("liabilities")
+        .populate("expectedLiabilities");
     },
     // get a user by username
     user: async (parent, { username }) => {
@@ -32,6 +34,10 @@ const resolvers = {
     assets: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Assets.find(params).sort({ createdAt: -1 });
+    },
+    assetById: async (parent, { _id }) => {
+      //const params = username ? { username } : {};
+      return Assets.findOne({_id});
     },
     assetsPerMonth: async (parent, { username,monthName,year}) => {
       return Assets.findOne({username,monthName,year});
@@ -69,7 +75,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addAssets: async (parent, args, context) => {
+    addAssets: async (parent, {salary,monthName,year}, context) => {
       if (context.user) {
         const assets = await Assets.create({username: context.user.username,salary: salary,monthName: monthName,year: year});
     
@@ -86,13 +92,12 @@ const resolvers = {
     },
     updateAssets: async (parent, {_id,salary}, context) => {
       if (context.user) {
-    
+        console.log(salary);
        const assets = await Assets.findByIdAndUpdate(
           { _id: _id },
-          { $push: {salary: salary} },
+          { salary: salary},
           { new: true }
-        );
-    
+        );   
         return assets;
       }
     
@@ -102,8 +107,7 @@ const resolvers = {
       if (context.user) {
     
        const assets = await Assets.findByIdAndDelete(
-          { _id: _id },
-          { new: true }
+          { _id: _id }
         );
     
         return assets;
@@ -111,9 +115,10 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
-    addLiabilities: async (parent, args, context) => {
+    addLiabilities: async (parent, {rent,utilities,reoccurringBills,gas,food,monthName,year}, context) => {
       if (context.user) {
-        const liabilities = await Liabilities.create({ ...args, username: context.user.username });
+        const liabilities = await Liabilities.create({rent:rent,utilities:utilities,reoccurringBills:reoccurringBills,
+          gas:gas,food:food,username: context.user.username,monthName:monthName,year:year});
     
         await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -131,7 +136,7 @@ const resolvers = {
     
        const liabilities = await Liabilities.findByIdAndUpdate(
           { _id: _id },
-          { $push: {rent:rent,utilities:utilities,reoccurringBills:reoccurringBills,gas:gas,food:food} },
+          {rent:rent,utilities:utilities,reoccurringBills:reoccurringBills,gas:gas,food:food},
           { new: true }
         );
     
@@ -144,8 +149,7 @@ const resolvers = {
       if (context.user) {
     
        const liabilities = await Liabilities.findByIdAndDelete(
-          { _id: _id },
-          { new: true }
+          { _id: _id }
         );
     
         return liabilities;
@@ -153,9 +157,10 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
-    addExpectedLiabilities: async (parent, args, context) => {
+    addExpectedLiabilities: async (parent, {rent,utilities,reoccurringBills,gas,food,monthName,year}, context) => {
       if (context.user) {
-        const expectedLiabilities = await ExpectedLiabilities.create({ ...args, username: context.user.username });
+        const expectedLiabilities = await ExpectedLiabilities.create({rent:rent,utilities:utilities,reoccurringBills:reoccurringBills,
+          gas:gas,food:food,username: context.user.username,monthName:monthName,year:year});
     
         await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -173,7 +178,7 @@ const resolvers = {
     
        const expectedLiabilities = await ExpectedLiabilities.findByIdAndUpdate(
           { _id: _id },
-          { $push: {rent:rent,utilities:utilities,reoccurringBills:reoccurringBills,gas:gas,food:food} },
+          { rent:rent,utilities:utilities,reoccurringBills:reoccurringBills,gas:gas,food:food},
           { new: true }
         );
     
@@ -186,8 +191,7 @@ const resolvers = {
       if (context.user) {
     
        const expectedLiabilities = await ExpectedLiabilities.findByIdAndDelete(
-          { _id: _id },
-          { new: true }
+          { _id: _id }
         );
     
         return expectedLiabilities;
@@ -195,6 +199,7 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     }
+    
   }
 };
 

@@ -1,36 +1,36 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const LiabilitiesSchema = new Schema({
-    rent:{
-        type: String
-        
+const LiabilitiesSchema = new Schema(
+  {
+    rent: {
+      type: Number
     },
     utilities: {
-        type: String
+      type: Number
     },
     reoccurringBills: {
-        type: String
+      type: Number
     },
     gas: {
-        type: String
+      type: Number
     },
     food: {
-        type: String
+      type: Number
     },
     username: {
-        type: String,
-        required: true
-      },
-      monthName: {
-        type: String
+      type: String
+    },
+    monthName: {
+      type: String
     },
     year: {
-        type: String
-    } 
+      type: String
+    },
+  },
+  {
+    toJSON: { getters: true },
+  }
+);
 
-},{
-    toJSON: {getters:true}
-}) 
-
-const Liabilities = model('Liabilities',LiabilitiesSchema);
-module.exports= Liabilities
+const Liabilities = model("Liabilities", LiabilitiesSchema);
+module.exports = Liabilities;
