@@ -1,17 +1,20 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import Sidebar from "./Sidebar";
 
 
-class Chart extends React.Component {
+const Chart = () => {
 
-    data = [
+
+
+    const expense = [
         {
             "name": "Rent",
             "Expected": 600,
             "Actual": 600
-        },
+            },
         {
-          "name": "Food",
+          "name": "Utilities",
           "Expected": 300,
           "Actual": 200
         },
@@ -21,7 +24,7 @@ class Chart extends React.Component {
           "Actual": 225
         },
         {
-          "name": "Going Out",
+          "name": "Food",
           "Expected": 100,
           "Actual": 200,
         },
@@ -32,12 +35,11 @@ class Chart extends React.Component {
         }
     ]
 
-    render() {
         return (
         <BarChart
           width={600}
           height={300}
-          data={this.data}
+          data={expense}
           margin={{
             top: 20,
             right: 30,
@@ -56,6 +58,5 @@ class Chart extends React.Component {
         </BarChart>
         )
     };
-}
 
 export default Chart;

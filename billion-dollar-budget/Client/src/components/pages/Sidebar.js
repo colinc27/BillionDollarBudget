@@ -2,20 +2,39 @@ import React from 'react'
 import { slide as Menu } from 'react-burger-menu';
 
 class Sidebar extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state={
+            monthlyIncome: 0,
+            expectedRent: 0,
+            expectedUtilities: 0,
+            expectedMisc: 0,
+            expectedFood: 0,
+            expectedGas: 0
+        }
+
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
       }
+      handleChange(e) {
+        this.setState({[e.target.name]: e.target.value})
+        console.log(e.target.value)
+      }
+
       handleSubmit(event) {
         event.preventDefault();
-        const data = new FormData(event.target);
-    
-        console.log(data.get('monthlyIncome')); // reference by form input's `name` tag
-        console.log(data.get('expectedGas'));
-        fetch('/api/expected', {
-          method: 'POST',
-          body: data,
-        });
+        const {monthlyIncome, expectedRent, expectedUtilities, expectedMisc, expectedFood, expectedGas} =this.state
+        console.log((monthlyIncome)); // reference by form input's `name` tag
+        console.log((expectedRent));
+        console.log((expectedUtilities));
+        console.log((expectedMisc));
+        console.log((expectedFood));
+        console.log((expectedGas));
+
+        // fetch('/api/expected', {
+        //   method: 'POST',
+        //   body: data,
+        // });
       }
     
 render(){
@@ -24,10 +43,18 @@ render(){
         <div>
           <h5>Please enter your budget variables here</h5>
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor='monthlyIncome'>Enter Monthly Income</label>
-            <input type="text" name="monthlyIncome" id='monthlyIncome'/>
-            <label htmlFor='expectedGas'>Enter Expected Gas</label>
-            <input type="text" name="expectedGas" id='expectedGas'/>
+            <label htmlFor='monthlyIncome'>Monthly Income</label>
+            <input type="number" name="monthlyIncome" id='monthlyIncome' defaultValue={this.state.monthlyIncome} onChange={this.handleChange}/>
+            <label htmlFor='expectedRent'>Expected Rent</label>
+            <input type="number" name="expectedRent" id='expectedRent' defaultValue={this.state.expectedRent} onChange={this.handleChange}/>
+            <label htmlFor='expectedUtilities'>Expected Utilities</label>
+            <input type="number" name="expectedUtilities" id='expectedUtilities' defaultValue={this.state.expectedUtilities} onChange={this.handleChange}/>
+            <label htmlFor='expectedMisc'>Expected Misc. Expenses</label>
+            <input type="number" name="expectedMisc" id='expectedMisc' defaultValue={this.state.expectedRent} onChange={this.handleChange}/>
+            <label htmlFor='expectedFood'>Expected Food</label>
+            <input type="number" name="expectedFood" id='expectedFood' defaultValue={this.state.expectedFood} onChange={this.handleChange}/>
+            <label htmlFor='expectedGas'>Expected Gas</label>
+            <input type="number" name="expectedGas" id='expectedGas' defaultValue={this.state.expectedGas} onChange={this.handleChange}/>
             <button type="submit" id="save" class="btn btn-success mx-2">Save</button>
           </form>
           {/* <div class="d-flex flex-row my-2">         
@@ -64,5 +91,4 @@ render(){
   )
 }
 }
-
-export default Sidebar
+export default Sidebar;
