@@ -1,21 +1,31 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const paycheckSchema = new Schema ({
+const paycheckSchema = new Schema(
+  {
     salary: {
-        type: Number 
+      type: Number,
+      required:true
     },
-    createdAt:{
-        type: Date,
-        default: Date.now
-
+    createdAt: {
+      type: Date,
+      default: Date.now,
     },
-},
-{
-    toJSON:{
-        getters: true
-    }
+    username: {
+      type: String
+    },
+    monthName: {
+      type: String
+    },
+    year: {
+      type: String
+    },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+  }
+);
 
-})
-
-const Assets = model('Assets',paycheckSchema);
-module.exports = Assets
+const Assets = model("Assets", paycheckSchema);
+module.exports = Assets;
