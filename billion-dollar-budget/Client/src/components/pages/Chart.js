@@ -5,8 +5,6 @@ import Sidebar from "./Sidebar";
 
 const Chart = () => {
 
-
-
     const expense = [
         {
             "name": "Rent",
@@ -34,8 +32,8 @@ const Chart = () => {
           "Actual": 500
         }
     ]
-
         return (
+          
         <BarChart
           width={600}
           height={300}
