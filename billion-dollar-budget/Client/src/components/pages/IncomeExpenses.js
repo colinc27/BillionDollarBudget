@@ -1,4 +1,4 @@
-import React, { useState, } from 'react'
+import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
 import '../styles/Home.css'
 import 'react-bootstrap'
@@ -18,6 +18,7 @@ function IncomeExpenses() {
   const [ reoccurringBills, setreoccurringBills] = useState(0);
   const [ gasAmount, setGasAmount ] = useState(0);
   const [ foodAmount, setFoodAmount ] = useState(0);
+  const [ currentBudget, setCurrentBudget ] = useEffect('')
 
 
 
