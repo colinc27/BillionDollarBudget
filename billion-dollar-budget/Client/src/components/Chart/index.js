@@ -31,7 +31,7 @@ const Chart = ({expectedData}) => {
         }
     ]
         return (
-          
+          <div className="">
         <BarChart
           width={600}
           height={300}
@@ -52,6 +52,7 @@ const Chart = ({expectedData}) => {
           <Bar yAxisId="left" dataKey="Expected" fill="#EC7063" />
           <Bar yAxisId="right" dataKey="Actual" fill="#58D68D" />
         </BarChart>
+        </div>
         )
     };
 
