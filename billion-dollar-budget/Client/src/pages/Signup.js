@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
@@ -80,9 +81,12 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <div className='py-2'>
-              <button className="btn btn-secondary py-1" type="submit">
+              <button className="btn btn-primary submit px-3 mx-2 my-3" type="submit">
                 Submit
               </button>
+              <Link to={`/`}>
+                <button className="btn btn-warning submit px-3 mx-2 my-3" role="link">Login Instead</button>
+                 </Link>
               </div>
               {error && <h5 className='bg-danger border border-danger rounded text-center my-1'>Sign-up failed</h5>}
               </div>
