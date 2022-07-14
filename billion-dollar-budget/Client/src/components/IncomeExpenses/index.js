@@ -32,7 +32,7 @@ function IncomeExpenses() {
     <>
       <div>
           <h2>Monthly Expenses Vs. Paycheck</h2>
-          <Table striped bordered hover variant="dark">
+          <Table striped bordered hover variant="success">
            <thead>
               <tr>
                 <th><h3>Item</h3></th>
