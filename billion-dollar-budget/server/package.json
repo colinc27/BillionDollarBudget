@@ -19,7 +19,10 @@
     "faker": "^4.1.0",
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.9"
+    "mongod": "^2.0.0",
+    "mongodb": "^4.8.0",
+    "mongoose": "^5.9.9",
+    "whatwg-url": "^11.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

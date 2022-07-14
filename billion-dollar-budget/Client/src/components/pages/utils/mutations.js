@@ -57,3 +57,12 @@ export const REMOVE_USER = gql`
 `;
 
 // add UPDATE_USER somthing
+
+/*
+export const GET_PAYMENT_URL = gql`
+  mutation getPaymentUrl() {
+    getPaymentUrl() {
+      url
+    }
+  }
+`;*/

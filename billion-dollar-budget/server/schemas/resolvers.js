@@ -198,7 +198,12 @@ const resolvers = {
       }
     
       throw new AuthenticationError('You need to be logged in!');
-    }
+    },
+
+   /* getPaymentUrl: async (parent, args, context) => {
+      const URL = 'https.//google.com/';
+      return URL;
+    }*/
     
   }
 };

@@ -3,6 +3,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 
 const Header = () => {
+
   /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
   return (
     <header class="fixed-top bg-success bg-gradient text-center text-white py-1">

@@ -3,11 +3,8 @@ import Table from 'react-bootstrap/Table'
 import '../styles/Home.css'
 import 'react-bootstrap'
 import { ModifyBudget } from './ModifyBudget';
-
-// import Auth from '../utils/auth';
-// import { useQuery } from '@apollo/client';
-// import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
-
+import { useMutation } from '@apollo/client';
+import { ADD_BUDGET } from '../utils/mutations';
 
 
 function IncomeExpenses() {
@@ -20,13 +17,7 @@ function IncomeExpenses() {
   const [ foodAmount, setFoodAmount ] = useState(0);
   // const [ currentBudget, setCurrentBudget ] = useEffect('')
 
-
-
-//fetch go here?
-// const updatePaycheck = ({id, newPaycheckAmount}) => {
-//     console.log("paycheck updated")
-// }
-
+  const [addExpense] = useMutation(ADD_BUDGET);
 
   return (
     <>
