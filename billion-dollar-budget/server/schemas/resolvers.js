@@ -29,7 +29,8 @@ const resolvers = {
       return User.findOne({ username })
         .select("-__v -password")
         .populate("assets")
-        .populate("liabilities");
+        .populate("liabilities")
+        .populate("expectedLiabilities");
     },
     assets: async (parent, { username }) => {
       const params = username ? { username } : {};
