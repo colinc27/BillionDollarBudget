@@ -58,7 +58,7 @@ const Login = (props) => {
                 value={formState.email}
                 onChange={handleChange}
               /></div>
-              <div className='justify-content-center text-center py-2' >
+              <div className='justify-content-center text-center py-1' >
               <h3 className='px-2 text-center fw-bold'>Password</h3>  
               <input
                 className="form-input input-large border border-success border-5 rounded"
