@@ -4,6 +4,7 @@ import '../../styles/Home.css'
 import 'react-bootstrap'
 import { ModifyBudget } from '../ModifyBudget';
 import Chart from '../Chart';
+import Balance from '../Balance';
 
 // import Auth from '../utils/auth';
 // import { useQuery } from '@apollo/client';
@@ -13,7 +14,7 @@ import Chart from '../Chart';
 
 function IncomeExpenses() {
 
-  const [ paycheckAmount, setPaycheckAmount] = useState(0);
+  const [ monthlyIncome, setMonthlyIncome] = useState(0);
   const [ rentAmount, setRentAmount ] = useState(0);
   const [ utilitiesAmount, setUtilitiesAmount ] = useState(0);
   const [ miscAmount, setMisc] = useState(0);
@@ -24,7 +25,7 @@ function IncomeExpenses() {
 
 
 //fetch go here?
-// const updatePaycheck = ({id, newPaycheckAmount}) => {
+// const updatePaycheck = ({id, newmonthlyIncome}) => {
 //     console.log("paycheck updated")
 // }
 
@@ -32,7 +33,8 @@ function IncomeExpenses() {
   return (
     <>
       <div>
-          <h2>Monthly Expenses Vs. Paycheck</h2>
+      <Balance monthlyIncome={monthlyIncome} rent={rentAmount} gas={gasAmount} utilities={utilitiesAmount} misc={miscAmount}food={foodAmount}></Balance>
+          <h2>Actual Amount Spent Per Category</h2>
           <Table striped bordered hover variant="success">
            <thead>
               <tr>
@@ -42,11 +44,11 @@ function IncomeExpenses() {
             </thead>
             <tbody>
               <tr>
-                <td className="main-text">Paycheck</td>
+                <td className="main-text">Monthly Income</td>
                 <td>
                   <input 
-                    value={paycheckAmount}
-                    onChange={(event) => setPaycheckAmount(event.target.value)} 
+                    value={monthlyIncome}
+                    onChange={(event) => setMonthlyIncome(event.target.value)} 
                     type='text' 
                     id='paycheck'
                     placeholder='Enter monthly income here.'

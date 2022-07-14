@@ -13,7 +13,6 @@ function Home() {
         <div class="container pt-5">
           <Header />
           <div class="py-5" id="page-wrap">
-            <Balance />
             <IncomeExpenses />
         {/* <ModifyBudget /> */}
         <Logout />

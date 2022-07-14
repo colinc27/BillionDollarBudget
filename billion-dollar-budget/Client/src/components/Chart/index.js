@@ -48,8 +48,8 @@ const Chart = (props) => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis yAxisId="left" orientation="left" stroke="#58D68D" />
-          <YAxis yAxisId="right" orientation="right" stroke="#EC7063" />
+          <YAxis yAxisId="left" orientation="left" stroke="#58D68D" domain={[0,750]}/>
+          <YAxis yAxisId="right" orientation="right" stroke="#EC7063" domain={[0,750]} />
           <Tooltip />
           <Legend />
           <Bar yAxisId="left" dataKey="Expected" fill="#58D68D" />

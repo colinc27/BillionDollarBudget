@@ -77,5 +77,10 @@ body {
   position: relative;
   top: 50px
 }
-
+.positive{
+  background-color:#58D68D ;
+}
+.negative{
+  background-color: #EC7063;
+}
 /* sidebar end */
