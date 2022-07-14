@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 const Footer = () => {
   return (
-    <footer class="footer bg-success bg-gradient text-center text-white">
+    <footer class="footer fixed-bottom bg-success bg-gradient text-center text-white">
       <h2 class="">
       Billion Dollar Budget App
       </h2>
