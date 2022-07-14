@@ -4,7 +4,7 @@ import Balance  from '../components/Balance';
 import IncomeExpenses from '../components/IncomeExpenses';
 import Chart from "../components/Chart";
 import Footer from '../components/Footer';
-import './App.css';
+import '../App.css';
 // import Sidebar from './components/pages/Sidebar';
 function Home() {
   return (

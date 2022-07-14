@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
 import '../../styles/Home.css'
 import 'react-bootstrap'
-import { ModifyBudget } from './ModifyBudget';
+import { ModifyBudget } from '../ModifyBudget';
 
 // import Auth from '../utils/auth';
 // import { useQuery } from '@apollo/client';
