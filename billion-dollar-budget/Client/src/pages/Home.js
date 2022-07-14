@@ -5,6 +5,7 @@ import IncomeExpenses from '../components/IncomeExpenses';
 import Chart from "../components/Chart";
 import Footer from '../components/Footer';
 import '../styles/Home.css';
+import Logout from '../components/Logoutbtn';
 // import Sidebar from './components/pages/Sidebar';
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
             {/* <IncomeExpenses /> */}
             <Chart />
         {/* <ModifyBudget /> */}
+        <Logout />
         </div>
         <Footer />
     </div>
