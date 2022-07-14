@@ -1,6 +1,7 @@
 import React from 'react';
 // import 'react-bootstrap'
 import Sidebar from '../Sidebar';
+import '../../App.css'
 
 const Header = () => {
 
