@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import '../App.css'
+import {Link} from 'react-router-dom'
 
 import Auth from '../utils/auth';
 
@@ -70,9 +71,12 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <div className=''>
-              <button className="btn btn-secondary submit px-3 my-3" type="submit">
+              <button className="btn btn-primary submit px-3 mx-2 my-3" type="submit">
                 Submit
               </button>
+              <Link to={`/signup`}>
+                <button className="btn btn-warning submit px-3 mx-2 my-3" role="link">Sign up</button>
+                 </Link>
               </div>
               {error && <h5 className='bg-danger border border-danger rounded text-center my-1'>Login failed</h5>}
               </div>
