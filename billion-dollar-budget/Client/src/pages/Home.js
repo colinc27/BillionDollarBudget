@@ -1,10 +1,10 @@
 import React from 'react';
-import  Header  from '../components/Header';
-import Balance  from '../components/Balance';
-import IncomeExpenses from '../components/IncomeExpenses';
-import Chart from "../components/Chart";
-import Footer from '../components/Footer';
-import '../App.css';
+import  Header  from './components/Header/';
+import Balance  from './components/Balance/';
+import IncomeExpenses from './components/IncomeExpenses/';
+import Chart from "./components/Chart/";
+import Footer from './components/Footer/';
+import '../styles/Home.css';
 // import Sidebar from './components/pages/Sidebar';
 function Home() {
   return (
