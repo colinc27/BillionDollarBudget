@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
-import '../styles/Home.css'
+import '../../styles/Home.css'
 import 'react-bootstrap'
 import { ModifyBudget } from './ModifyBudget';
 
