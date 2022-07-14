@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { slide as Menu } from 'react-burger-menu';
+import Chart from '../Chart';
 // import { ADD_BUDGET } from './utils/mutations';
 // import { useMutation } from '@apollo/client';
 // import { QUERY_BUDGET} from './utils/queries'
@@ -14,6 +15,8 @@ const Sidebar = () =>{
     const [expectedMisc, setMisc] = useState(0);
     const [expectedFood, setFood] = useState(0);
     const [expectedGas, setGas] = useState(0);
+    const expectedData = {monthlyIncome,expectedFood,expectedGas,expectedMisc,expectedRent,expectedUtilities};
+    console.log(expectedData)
 
     // const [updateBudget, { error }] = useMutation(ADD_BUDGET, {
     //     update(cache, { data: { expectedData } }) {
@@ -56,6 +59,7 @@ const handleChangeExpectedGas = (event) => {
   };
 
 return (
+  <div>
     <Menu>
       <div>
         <h5>Please enter your budget variables here</h5>
@@ -80,6 +84,9 @@ return (
            </div> */}
       </div>
   </Menu>
+  {/* <Chart data={monthlyIncome}/> */}
+  </div>
 )}
+
 export default Sidebar;
           // submit form

@@ -1,33 +1,36 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Link } from "react-router-dom";
+import Sidebar from "../Sidebar";
 
-const Chart = ({expectedData}) => {
+
+const Chart = (props) => {
 
     const expense = [
         {
             "name": "Rent",
             "Expected": 600,
-            "Actual": 600
+            "Actual": props.rent
             },
         {
           "name": "Utilities",
           "Expected": 300,
-          "Actual": 200
+          "Actual": props.utilities
         },
         {
           "name": "Misc.",
           "Expected": 400,
-          "Actual": 225
+          "Actual": props.misc
         },
         {
           "name": "Food",
           "Expected": 100,
-          "Actual": 200,
+          "Actual": props.food,
         },
         {
           "name": "Gas",
           "Expected": 200,
-          "Actual": 500
+          "Actual": props.gas
         }
     ]
         return (
@@ -45,12 +48,12 @@ const Chart = ({expectedData}) => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis yAxisId="left" orientation="left" stroke="#EC7063" />
-          <YAxis yAxisId="right" orientation="right" stroke="#58D68D" />
+          <YAxis yAxisId="left" orientation="left" stroke="#58D68D" />
+          <YAxis yAxisId="right" orientation="right" stroke="#EC7063" />
           <Tooltip />
           <Legend />
-          <Bar yAxisId="left" dataKey="Expected" fill="#EC7063" />
-          <Bar yAxisId="right" dataKey="Actual" fill="#58D68D" />
+          <Bar yAxisId="left" dataKey="Expected" fill="#58D68D" />
+          <Bar yAxisId="right" dataKey="Actual" fill="#EC7063" />
         </BarChart>
         </div>
         )

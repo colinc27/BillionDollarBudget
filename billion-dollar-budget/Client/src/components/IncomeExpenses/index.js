@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table'
 import '../../styles/Home.css'
 import 'react-bootstrap'
 import { ModifyBudget } from '../ModifyBudget';
+import Chart from '../Chart';
 
 // import Auth from '../utils/auth';
 // import { useQuery } from '@apollo/client';
@@ -15,7 +16,7 @@ function IncomeExpenses() {
   const [ paycheckAmount, setPaycheckAmount] = useState(0);
   const [ rentAmount, setRentAmount ] = useState(0);
   const [ utilitiesAmount, setUtilitiesAmount ] = useState(0);
-  const [ reoccurringBills, setreoccurringBills] = useState(0);
+  const [ miscAmount, setMisc] = useState(0);
   const [ gasAmount, setGasAmount ] = useState(0);
   const [ foodAmount, setFoodAmount ] = useState(0);
   // const [ currentBudget, setCurrentBudget ] = useEffect('')
@@ -74,11 +75,11 @@ function IncomeExpenses() {
                 </td>
               </tr>
               <tr>
-                <td className="main-text">Reoccurring Bills</td>
+                <td className="main-text">Misc. Charges</td>
                 <td>
                   <input 
-                    value={reoccurringBills}
-                    onChange={(event) => setreoccurringBills(event.target.value)} 
+                    value={miscAmount}
+                    onChange={(event) => setMisc(event.target.value)} 
                     type='text' 
                   />
                 </td>
@@ -109,7 +110,7 @@ function IncomeExpenses() {
          </Table>
          <br/>
          <button onClick={ModifyBudget} className='btn btn-secondary'> (Paycheck - Expenses) = </button>
-          
+          <Chart rent={rentAmount} gas={gasAmount} utilities={utilitiesAmount} misc={miscAmount}food={foodAmount}></Chart>
         </div>
       </>
 
