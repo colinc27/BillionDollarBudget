@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost:27017/billion-dollar-budget',
+mongoose.connect(process.env.MONGOD_URI || 'mongodb://127.0.0.1:27017/billion-dollar-budget',
 {
     useNewUrlParser: true,
     useUnifiedTopology:true,

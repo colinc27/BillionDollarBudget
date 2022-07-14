@@ -68,5 +68,9 @@ body {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+.login{
+  position: relative;
+  top: 80px
+}
 
 /* sidebar end */
