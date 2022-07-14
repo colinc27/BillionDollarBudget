@@ -1,9 +1,9 @@
 import React from 'react';
-import  Header  from './components/pages/Header';
-import Balance  from './components/pages/Balance';
-import IncomeExpenses from './components/pages/IncomeExpenses';
-import Chart from "./components/pages/Chart";
-import Footer from './components/pages/Footer';
+import  Header  from './components/Header/index.js';
+import Balance  from './components/Balance/index.js';
+import IncomeExpenses from './components/IncomeExpenses/index.js';
+import Chart from "./components/Chart/index.js";
+import Footer from './components/Footer/index.js';
 import './App.css';
 // import Sidebar from './components/pages/Sidebar';
 function Home() {

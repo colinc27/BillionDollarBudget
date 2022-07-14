@@ -1,6 +1,6 @@
 import React from 'react';
 // import 'react-bootstrap'
-import Sidebar from './pages/Sidebar';
+import Sidebar from './Sidebar/index.js';
 
 const Header = () => {
 
