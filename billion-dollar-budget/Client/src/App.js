@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
-ApolloClient,
+    ApolloClient,
 InMemoryCache,
 ApolloProvider,
 createHttpLink,
@@ -16,7 +16,7 @@ import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 
 const httpLink = createHttpLink({
-    uri: '/graphql',
+    uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -41,14 +41,14 @@ function App() {
         <div className="flex-column justify-content-center min-100-vh">
             <Header />
             <div className="container justify-content-center">
-            <Routes>
-                <Route 
-                path="/" 
-                element={<Login />} 
-                />
+            <Routes>               
                 <Route 
                 path="/home" 
                 element={<Home />} 
+                />
+                <Route 
+                path="/" 
+                element={<Login />} 
                 />
                 <Route 
                 path="/signup" 
