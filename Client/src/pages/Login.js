@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import '../App.css'
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
+import "../App.css";
+import { Link } from "react-router-dom";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
@@ -36,49 +36,67 @@ const Login = (props) => {
 
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
   return (
     <main className="mx-auto">
       <div className="col-sm-12 col-md-8 login justify-content-center mx-auto">
-        <div className="card border border-success border-5 rounded m-5 p-5" id="card">
-          <h4 className="card-header border border-success bg-success rounded border-5 text-white text-center">Login</h4>
+        <div
+          className="card border border-success border-5 rounded m-5 p-5"
+          id="card"
+        >
+          <h4 className="card-header border border-success bg-success rounded border-5 text-white text-center">
+            Login
+          </h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
-              <div className='justify-content-center text-center py-2 form-group'>
-                <h3 className='px-2 fw-bold'>Email</h3>             
+              <div className="justify-content-center text-center py-2 form-group">
+                <h3 className="px-2 fw-bold">Email</h3>
                 <input
-                className="form-input border border-success border-5 rounded"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              /></div>
-              <div className='justify-content-center text-center py-1' >
-              <h3 className='px-2 text-center fw-bold'>Password</h3>  
-              <input
-                className="form-input input-large border border-success border-5 rounded"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <div className=''>
-              <button className="btn btn-primary submit px-3 mx-2 my-3" type="submit">
-                Submit
-              </button>
-              <Link to={`/signup`}>
-                <button className="btn btn-warning submit px-3 mx-2 my-3" role="link">Sign up</button>
-                 </Link>
+                  className="form-input border border-success border-5 rounded"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  id="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
               </div>
-              {error && <h5 className='bg-danger border border-danger rounded text-center my-1'>Login failed</h5>}
+              <div className="justify-content-center text-center py-1">
+                <h3 className="px-2 text-center fw-bold">Password</h3>
+                <input
+                  className="form-input input-large border border-success border-5 rounded"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  id="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                <div className="">
+                  <button
+                    className="btn btn-primary submit px-3 mx-2 my-3"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                  <Link to={`/signup`}>
+                    <button
+                      className="btn btn-warning submit px-3 mx-2 my-3"
+                      role="link"
+                    >
+                      Sign up
+                    </button>
+                  </Link>
+                </div>
+                {error && (
+                  <h5 className="bg-danger border border-danger rounded text-center my-1">
+                    Login failed
+                  </h5>
+                )}
               </div>
             </form>
           </div>

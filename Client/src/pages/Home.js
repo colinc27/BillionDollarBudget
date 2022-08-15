@@ -7,10 +7,10 @@ import Logout from "../components/Logoutbtn";
 
 function Home() {
   return (
-    <body class="d-flex flex-column min-vh-100" id="App">
-      <div class="container pt-5">
+    <body className="d-flex flex-column min-vh-100" id="App">
+      <div className="container pt-5">
         <Header />
-        <div class="py-5" id="page-wrap">
+        <div className="py-5" id="page-wrap">
           <IncomeExpenses />
           {/* <ModifyBudget /> */}
           <Logout />
